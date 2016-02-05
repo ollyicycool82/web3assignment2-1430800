@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+body {
+  
+  
+	min-height:600px;
+	background-position: center;
+	background-image: url("../img/books2.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	text-align:center;
+	text:bold;
+	
+}
+
+
+			
+#wrapper{
+
+	
+}
