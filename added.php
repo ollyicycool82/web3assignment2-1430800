@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,9 @@
     
   </header>
 </head>
-<title>The Bookstop login</title>
+<title>Added Content</title>
 <?php # DISPLAY SHOPPING CART ADDITIONS PAGE.
 
-# Access session.
-session_start() ;
 
 # Redirect if not logged in.
 if ( !isset( $_SESSION[ 'CustomerID' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
@@ -52,7 +51,8 @@ if ( mysqli_num_rows( $r ) == 1 )
 mysqli_close($dbc);
 
 # Create navigation links.
-echo '<p><a href="shop.php">Shop</a> | <a href="cart.php">View Cart</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
+echo '<p><a href="shop.php">Shop</a> | <a href="cart.php">View Cart</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>'
+ ;
 
 # Display footer section.
 #include ( 'includes/footer.html' ) ;

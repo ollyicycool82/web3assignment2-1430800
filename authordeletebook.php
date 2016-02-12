@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@ while($row= mysqli_fetch_array($result, MYSQLI_ASSOC ))
 {
 	#echo '<table><tr>';
 	echo  $row['item_name']. '<br><br><a href="deletedbook.php?id='.$row['item_id'].'">DELETE BOOK<br><br></a>';
-	echo  $row['item_price'];
+	echo  $row['item_price']."<br>";
 	#echo '</table></tr>';
 }
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,7 @@
 </head>
 <title>The Bookstop login</title>
 <?php # DISPLAY COMPLETE PRODUCTS PAGE.
-
-# Access session.
-session_start() ;
-
-# Redirect if not logged in
-if ( !isset( $_SESSION[ 'AuthorID' ] ) ) { require ( 'authorlogin_tools.php' ) ; load() ; }
-
-# Set page title and display header section.
+session_start();
 $page_title = 'AuthorShop' ;
 //include ( 'includes/header.html' ) ;
 
@@ -34,7 +28,7 @@ if ( mysqli_num_rows( $r ) > 0 )
   while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
   {
 	  if($counter=5){
-	  echo '<tr><td><strong>' . $row['item_name'] .'</strong><br><span style="font-size:smaller">'. $row['item_desc'] . '</span><br><img src='. $row['item_img'].'><br>$' . $row['item_price'] . '<br><a href="added.php?id='.$row['item_id'].'">Add to cart</a></td> </tr>';
+	  echo '<tr><td><strong>' . $row['item_name'] .'</strong><br><span style="font-size:smaller">'. $row['item_desc'] . '</span><br><img src='. $row['item_img'].'><br>$' . $row['item_price'] . '<br><a href="login.php?id='.$row['item_id'].'">Add to cart</a></td> </tr>';
 	  $counter++;}
   }
   echo '</table>';

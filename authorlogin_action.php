@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php # PROCESS AUTHOR LOGIN ATTEMPT.
 
 # Check form submitted.

@@ -4,14 +4,14 @@
 function load( $page = 'login.php' )
 {
   # Begin URL with protocol, domain, and current directory.
-  $url = 'http://' . $_SERVER[ 'HTTP_HOST' ] . dirname( $_SERVER[ 'PHP_SELF' ] ) ;
+  $url = 'http://' . $_SERVER[ 'HTTP_HOST' ]. dirname($_SERVER['PHP_SELF']);
 
   # Remove trailing slashes then append page name to URL.
-  $url = rtrim( $url, '/\\' ) ;
-  $url .= '/' . $page ;
-
+  $url = rtrim($url,'/\\' );
+  $url .= '/' . $page;
+  exit();
   # Execute redirect then quit. 
-  header( "Location: $url" ) ; 
+  header("Location:$url"); 
   exit() ;
 }
 
@@ -19,7 +19,7 @@ function load( $page = 'login.php' )
 function validate( $dbc, $email = '', $pass = '' )
 {
   # Initialize errors array.
-  $errors = array() ; 
+ // $errors = array() ; 
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 
@@ -33,6 +33,20 @@ $pass = $_POST['pass'];
  { $errors[] = 'Enter your password.' ; } 
  else { $p = mysqli_real_escape_string( $dbc, trim( $pass ) ) ; }
 
+ if (isset ($email) )
+ { $e = stripcslashes($e);}
+ 
+ if (isset ($pass) )
+ { $p = stripcslashes($p);}
+
+if (isset ($email) )
+{ $e = htmlentities($e);}
+
+if (isset ($pass) )
+{ $p = htmlentities($p);}
+ 
+ 
+ 
   # On success retrieve user_id, first_name, and last name from 'users' database.
   if ( empty( $errors ) ) 
   {

@@ -1,13 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/style1.css">
-<header>
-  <h1 align="center">Welcome To The Bookstop</h1>
-    
-  </header>
-</head>
-<title>The Bookstop login</title>
 <script type="text/javascript" src="jquery-1.6.3.min.js"></script>
 <style>
 #show-case
@@ -25,16 +20,9 @@ img
        height:200px;
 }
 </style>
-</head>
-<body>
-<div id="show-case">
-    <img class="img" src="img/cow.png">
-    <img class="img" src="img/dog.jpg">
-    <img class="img" src="img/faceless.jpg">
-    <img class="img" src="img/giggs.jpg">
-    <img class="img" src="img/goat.jpg">
-    <img class="img" src="img/ofmiceandmen.jpg">
-</div>
+
+<title>The Bookstop login</title>
+
 <script src="jquery-1.6.3.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -54,7 +42,7 @@ $(document).ready(function() {
        return false;
    }); // end submit
 		
-}); // end ready
+}); // end ready*/
 </script>
 <script>
 $(document).ready(function()
@@ -67,7 +55,24 @@ $(document).ready(function()
 });
 </script>
 <!--refreshes this part of page rather than whole page use of AJAX and JSON.-->
+</head>
 
+
+<header>
+  <h1 align="center">Welcome To The Bookstop</h1>
+    
+  </header>
+
+
+<body>
+<div id="show-case">
+    <img class="img" src="img/cow.png">
+    <img class="img" src="img/dog.jpg">
+    <img class="img" src="img/faceless.jpg">
+    <img class="img" src="img/giggs.jpg">
+    <img class="img" src="img/goat.jpg">
+    <img class="img" src="img/ofmiceandmen.jpg">
+</div>
 
 
 <?php # DISPLAY COMPLETE LOGIN PAGE.
@@ -91,8 +96,8 @@ if ( isset( $errors ) && !empty( $errors ) )
 				
 			
 <form action="login_action.php" method="post">
-<p align="center">Email Address: <input type="text" name="email"> </p>
-<p align="center">Password: <input type="password" name="pass"></p>
+<p align="center">Email Address:<input type="text" name="email"> </p>
+<p align="center">Password:<input type="password" name="pass"></p>
 <p align="center"><input type="submit" value="Login" ></p>
 <p align="center"><a href="guestshop.php">Login as Guest</a></p>
 <p align="center"><a href="authorlogin.php">Login as Author</a></p>

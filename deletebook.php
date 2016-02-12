@@ -1,7 +1,6 @@
+<?php session_start(); ?>
 <?php # DISPLAY COMPLETE PRODUCTS PAGE.
 
-# Access session.
-session_start() ;
 
 # Redirect if not logged in.
 if ( !isset( $_SESSION[ 'DeleteID' ] ) ) { require ( 'login_tools.php' ) ; load() ; }

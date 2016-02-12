@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,13 @@
     
   </header>
 </head>
-<title>The Bookstop login</title>
+<title>Shopping Cart</title>
+
+<body>
+
 <?php # DISPLAY SHOPPING CART PAGE.
 
-# Access session.
-session_start() ;
+
 
 # Redirect if not logged in.
 if ( !isset( $_SESSION[ 'CustomerID' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
@@ -52,7 +55,10 @@ if (!empty($_SESSION['cart']))
   $r = mysqli_query ($dbc, $q);
 
   # Display body section with a form and a table.
-  echo '<form action="cart.php" method="post"><table><tr><th colspan="5">Items in your cart</th></tr><tr>';
+  echo '<form action="cart.php" method="post" id="cartTable">
+  <br>
+  <table><tr><th colspan="5" style="text-align:right">Items in your cart</th></tr><tr>';
+   
   while ($row = mysqli_fetch_array ($r, MYSQLI_ASSOC))
   {
     # Calculate sub-totals and grand total.
@@ -60,10 +66,12 @@ if (!empty($_SESSION['cart']))
     $total += $subtotal;
 
     # Display the row/s:
-    echo "<br><br><br><br><br><br>
-	<tr> <td>{$row['item_name']}</td> <td>{$row['item_desc']}</td>
+	
+    
+	echo "<tr><table id= \"cartTable\"><td>{$row['item_name']}</td> 
     <td><input type=\"text\" size=\"3\" name=\"qty[{$row['item_id']}]\" value=\"{$_SESSION['cart'][$row['item_id']]['quantity']}\"></td>
-    <td>@ {$row['item_price']} = </td> <td>".number_format ($subtotal, 2)."</td></tr>";
+    <td>@ {$row['item_price']} = </td> <td >".number_format ($subtotal, 2)."</td></tr>";
+	 
   }
   
   # Close the database connection.
@@ -76,6 +84,8 @@ else
 # Or display a message.
 { echo '<p>Your cart is currently empty.</p>' ; }
 
+echo '</table>';
+
 # Create navigation links.
 echo '<p><a href="shop.php">Shop</a> | <a href="form.html?total='.$total.'">Checkout</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href="goodbye.php">Logout</a></p>' ;
 
@@ -83,4 +93,6 @@ echo '<p><a href="shop.php">Shop</a> | <a href="form.html?total='.$total.'">Chec
 #include ( 'includes/footer.html' ) ;
 
 ?>
+
+</body>
 </html>

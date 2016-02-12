@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,25 +13,20 @@
 	top: 203px;
 }
 </style>
+<title>Bookstop shop</title>
+
+</head>
 <header>
   <h1 align="center">&nbsp;</h1>
   <h1 align="center">Bookstop Shop</h1>
     
 </header>
-</head>
 <body>
-<div align="center">
+
 <?php # DISPLAY COMPLETE PRODUCTS PAGE.
 
-# Access session.
-session_start() ;
-
-# Redirect if not logged in
-if ( !isset( $_SESSION[ 'CustomerID' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
-
-# Set page title and display header section.
 $page_title = 'Shop' ;
-//include ( 'includes/header.html' ) ;
+//
 
 # Open database connection.
 require ( 'connect_db.php' ) ;

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,6 +51,8 @@ $(document).ready(function()
 
 # Access session.
 session_start() ; 
+
+
 
 # Redirect if not logged in.
 if ( !isset( $_SESSION[ 'CustomerID' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
