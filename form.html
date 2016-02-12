@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <link href="css/site.css" rel="stylesheet">
 <script src="jquery-1.6.3.min.js"></script> 
@@ -61,7 +62,7 @@ $(document).ready(function() {
 					</div>
 					<div>
 						<label for="country" class="label">country</label>
-						<select name="country">
+						<select name="country" id="country">
 							<option>Choose your country </option>
 							<option value="/us/">U.S.A. </option>
 							<option value="/us_espanol/">U.S.A. - Espa&ntilde;ol </option>
@@ -309,7 +310,7 @@ $(document).ready(function() {
 				<fieldset>
 					<legend>Shipping Information</legend>
 					<div class="indent">
-						<input type="checkbox" name="hideShip" id="hideShip">
+						<input type="checkbox" name="hideShip" value="hideShip" id="hideShip">
 						<label for="hideShip">Same as billing</label>
 					</div>
 					<div id="shipping">
@@ -335,7 +336,7 @@ $(document).ready(function() {
 						</div>
 						<div>
 							<label for="shipCountry" class="label">Country</label>
-							<select name="shipCountry">
+							<select name="shipCountry" id="shipCountry">
 								<option>Choose your country </option>
 								<option value="/us/">U.S.A. </option>
 								<option value="/us_espanol/">U.S.A. - Espa&ntilde;ol </option>
